@@ -20,8 +20,11 @@ public class ImportantTweet extends Tweet implements Tweetable {
         return Boolean.TRUE;
     }
 
-    @Override
+    public Date getDate() {
+        return this.date;
+    }
+
     public String getMessage() {
-        return "!IMPORTANT! " + message;
+        return "!IMPORTANT! " + this.message;
     }
 }

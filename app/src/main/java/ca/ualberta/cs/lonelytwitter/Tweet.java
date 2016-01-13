@@ -1,5 +1,7 @@
 package ca.ualberta.cs.lonelytwitter;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -9,6 +11,7 @@ public abstract class Tweet implements Tweetable {
 
     protected Date date;
     protected String message;
+    protected ArrayList<Mood> moods;
 
     // all child classes must implement the following
     public abstract Boolean isImportant();
@@ -22,14 +25,6 @@ public abstract class Tweet implements Tweetable {
         this.message = message;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
     public void setDate(Date date) {
         this.date = date;
     }
@@ -41,5 +36,13 @@ public abstract class Tweet implements Tweetable {
 
         // set message
         this.message = message;
+    }
+
+    public void setMoods(ArrayList<Mood> moods) {
+        this.moods = moods;
+    }
+
+    public ArrayList<Mood> getMoods() {
+        return moods;
     }
 }

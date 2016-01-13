@@ -19,4 +19,12 @@ public class NormalTweet extends Tweet implements Tweetable {
     public Boolean isImportant() {
         return Boolean.FALSE;
     }
+
+    public Date getDate() {
+        return this.date;
+    }
+
+    public String getMessage() {
+        return this.message;
+    }
 }
