@@ -47,7 +47,7 @@ public class LonelyTwitterActivity extends Activity {
 				setResult(RESULT_OK);
 				String text = bodyText.getText().toString();
 				Tweet latestTweet = new NormalTweet(text);
-				ImportantTweet latestImportantTweet = new ImportantTweet(text);
+				//ImportantTweet latestImportantTweet = new ImportantTweet(text);
 				//latestTweet.setMessage(latestTweet.getMessage() + "!");
 				tweets.add(latestTweet);
 				adapter.notifyDataSetChanged();
@@ -63,7 +63,7 @@ public class LonelyTwitterActivity extends Activity {
 			public void onClick(View v) {
 				setResult(RESULT_OK);
 				bodyText.setText(""); // clear body text
-				deleteFile("file.sav"); // delete save file
+				deleteFile(FILENAME); // delete save file
 				tweets.clear(); // clear tweets list
 				adapter.notifyDataSetChanged(); // update adapter
 			}
