@@ -12,6 +12,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,11 +25,21 @@ import com.google.gson.reflect.TypeToken;
 
 public class LonelyTwitterActivity extends Activity {
 
+
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
 
 	private ArrayList<Tweet> tweets = new ArrayList<Tweet>();
+
+	public ArrayAdapter<Tweet> getAdapter() {
+		return adapter;
+	}
+
+	public void setAdapter(ArrayAdapter<Tweet> adapter) {
+		this.adapter = adapter;
+	}
+
 	private ArrayAdapter<Tweet> adapter;
 
 	/** Called when the activity is first created. */
@@ -53,6 +64,13 @@ public class LonelyTwitterActivity extends Activity {
 				adapter.notifyDataSetChanged();
 				saveInFile();
 				//finish();
+
+				Intent intent = new Intent(LonelyTwitterActivity.this,
+						IntentReaderActivity.class);
+				intent.putExtra(IntentReaderActivity.TEXT_TO_TRANSFORM_KEY, "test message 1");
+				intent.putExtra(IntentReaderActivity.MODE_OF_TRANSFORM_KEY,
+						IntentReaderActivity.NORMAL);
+				startActivity(intent);
 			}
 		});
 
